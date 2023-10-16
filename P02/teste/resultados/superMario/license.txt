@@ -1,0 +1,11 @@
+Model Information:
+* title:	Super Mario Bros Coin
+* source:	https://sketchfab.com/3d-models/super-mario-bros-coin-aa97e093847a439f9feb064134813806
+* author:	BranHelsing (https://sketchfab.com/BranHelsing)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Super Mario Bros Coin" (https://sketchfab.com/3d-models/super-mario-bros-coin-aa97e093847a439f9feb064134813806) by BranHelsing (https://sketchfab.com/BranHelsing) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

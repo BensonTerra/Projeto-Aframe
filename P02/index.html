@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Projeto P02</title>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js "></script>
+        <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.js"></script>
+        <script src="https//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+        <link rel="stylesheet" href="StyleSheet.css">
+    </head>
+    <body>
+        <a-scene inspector-plugin-recast id="scene">
+            <a-assets>
+                <a-asset-item id="cenario" src="teste/cenario/cenario.gltf"></a-asset-item>
+                <a-asset-item id="calcMolde" src="teste/objetos/molde.gltf"></a-asset-item>
+
+                <a-asset-item id="pilarModelo" src="teste/resultados/pilar/scene.gltf"></a-assets-item>
+                <a-asset-item id="marioCoinModelo" src="teste/resultados/superMario/scene.gltf"></a-assets-item>
+                <a-asset-item id="omeleteModelo" src="teste/resultados/omelete/scene.gltf"></a-assets-item>
+                <a-asset-item id="tarteModelo" src="teste/resultados/tarte/scene.gltf"></a-assets-item>
+
+                <a-asset-item id="tecla1" src="teste/objetos/numero1.gltf"></a-asset-item>
+                <a-asset-item id="tecla2" src="teste/objetos/numero2.gltf"></a-asset-item>
+                <a-asset-item id="tecla3" src="teste/objetos/numero3.gltf"></a-asset-item>
+                <a-asset-item id="tecla4" src="teste/objetos/numero4.gltf"></a-asset-item>
+                <a-asset-item id="tecla5" src="teste/objetos/numero5.gltf"></a-asset-item>
+                <a-asset-item id="tecla6" src="teste/objetos/numero6.gltf"></a-asset-item>
+                <a-asset-item id="tecla7" src="teste/objetos/numero7.gltf"></a-asset-item>
+                <a-asset-item id="tecla8" src="teste/objetos/numero8.gltf"></a-asset-item>
+                <a-asset-item id="tecla9" src="teste/objetos/numero9.gltf"></a-asset-item>
+                <a-asset-item id="tecla0" src="teste/objetos/numero0.gltf"></a-asset-item>
+                <a-asset-item id="mais" src="teste/objetos/teclaMais.gltf"></a-asset-item>
+                <a-asset-item id="menos" src="teste/objetos/teclaMenos.gltf"></a-asset-item>
+                <a-asset-item id="multi" src="teste/objetos/teclaMultiplicação.gltf"></a-asset-item>
+                <a-asset-item id="divis" src="teste/objetos/teclaDivisao.gltf"></a-asset-item>
+                <a-asset-item id="clear" src="teste/objetos/teclaC.gltf"></a-asset-item>
+                <a-asset-item id="ponto" src="teste/objetos/teclaPonto.gltf"></a-asset-item>
+                <a-asset-item id="igual" src="teste/objetos/teclaIgual.gltf"></a-asset-item>
+            </a-assets>
+
+            <a-entity>
+                <a-entity id="rig" position="0 0 0" movement-controls="constrainToNavMesh: true">
+                    <a-entity camera position="0 2.5 0" look-controls="pointerLockEnabled: false">
+                        <a-gui-cursor 
+                        id="cursor" 
+                        raycaster="objects: [gui-interactable]"
+                        hover-color="#0000FF"
+                        fuse="false"
+                        fuse-timeout="2000" 
+                        design="ring">
+                            
+                        </a-gui-cursor>
+                    </a-entity>
+                </a-entity>
+                
+                <a-entity gltf-model="#cenario" position = "0 0 0">
+                    <a-entity id="pilar" gltf-model="#pilarModelo" position="-9 0.2 -9" scale="1 0.45 1" visible="false">
+                        <a-entity id="moedaMario" gltf-model="#marioCoinModelo" position="0 6 0" scale="2 4 2" visible="false"></a-entity>
+                        <a-entity id="omelete" gltf-model="#omeleteModelo" position="0 5 0" scale="10 15 10" rotation="0 0 -45" visible="false"></a-entity>
+                        <a-entity id="tarte" gltf-model="#tarteModelo" position="0 5 0" scale="1 5 1" rotation="0 0 0" visible="false"></a-entity>
+                    </a-entity> <!--visible="false"-->
+                </a-entity>
+
+                <a-light id="luzPilar" type="spot" color="#FFFFF" position="-3 4 -3" rotation="-45 45 -90" intensity="0"></a-light>
+                <a-light type="point"color="#FFFFF" position="0 3 0" intensity="1.5"></a-light>
+
+                <a-gui-input id="um" gltf-model="#tecla1" onclick="click" width="0.1" height="0.1" position="0 -0.1 0"></a-gui-input>
+                <a-gui-input id="dois" gltf-model="#tecla2" onclick="click" width="0.1" height="0.1" position="0 -0.1 0"></a-gui-input>
+                <a-gui-input id="tres" gltf-model="#tecla3" onclick="click" width="0.1" height="0.1" position="0 -0.1 0"></a-gui-input>
+                <a-gui-input id="quatro" gltf-model="#tecla4" onclick="click" width="0.1" height="0.1" position="0 -0.1 0"></a-gui-input>
+                <a-gui-input id="cinco" gltf-model="#tecla5" onclick="click" width="0.1" height="0.1" position="0 -0.1 0"></a-gui-input>
+                <a-gui-input id="seis" gltf-model="#tecla6" onclick="click" width="0.1" height="0.1" position="0 -0.1 0"></a-gui-input>
+                <a-gui-input id="sete" gltf-model="#tecla7" onclick="click" width="0.1" height="0.1" position="0 -0.1 0"></a-gui-input>
+                <a-gui-input id="oito" gltf-model="#tecla8" onclick="click" width="0.1" height="0.1" position="0 -0.1 0"></a-gui-input>
+                <a-gui-input id="nove" gltf-model="#tecla9" onclick="click" width="0.1" height="0.1" position="0 -0.1 0"></a-gui-input>
+                <a-gui-input id="zero" gltf-model="#tecla0" onclick="click" width="0.1" height="0.1" position="0 -0.1 0"></a-gui-input>
+    
+                <a-gui-input id="botaoMais" gltf-model="#mais" onclick="click" width="0.1" height="0.1" position="0 -0.1 0"></a-gui-input>
+                <a-gui-input id="botaoMenos" gltf-model="#menos" onclick="click" width="0.1" height="0.1" position="0 -0.1 0"></a-gui-input>
+                <a-gui-input id="botaoMulti" gltf-model="#multi" onclick="click" width="0.1" height="0.1" position="0 -0.1 0"></a-gui-input>
+                <a-gui-input id="botaoDivi" gltf-model="#divis" onclick="click" width="0.1" height="0.1" position="0 -0.1 0"></a-gui-input>
+    
+                <a-gui-input id="clearButton" gltf-model="#clear" onclick="click" width="0.1" height="0.1" position="0 -0.1 0"></a-gui-input>
+                <a-gui-input id="pontoButton" gltf-model="#ponto" onclick="click" width="0.1" height="0.1" position="0 -0.1 0"></a-gui-input>
+                <a-gui-input id="teclaIgual" gltf-model="#igual" onclick="click" width="0.1" height="0.1" position="0 -0.1 0"></a-gui-input>
+                
+                <a-gltf-model src="teste/mesh/mesh.gltf" checkpoint nav-mesh visible="false"></a-gltf-model>
+
+                <a-box id="boxInput1" position="2 2.8 -12">
+                    <a-gui-input>
+                        <a-text id="input1" value="0" position="0 0 0.5" color="black" align="center" geometry="primitive:plane" material="opacity: 0.0; transparent: true"></a-text>
+                    </a-gui-input>
+                </a-box>
+                
+                <a-box id="boxOperator" position="3 2.8 -12">
+                    <a-text id="displayOperator" position="0 0 0.5" color="black" align="center" geometry="primitive:plane" material="opacity: 0.0; transparent: true"></a-text>
+                </a-box>
+    
+                <a-box id="boxInput2" position="4 2.8 -12">
+                    <a-gui-input>
+                        <a-text id="input2" value="0" position="0 0 0.5" color="black" align="center" geometry="primitive:plane" material="opacity: 0.0; transparent: true"></a-text>
+                    </a-gui-input>
+                </a-box>
+    
+                <a-box position="5 2.8 -12">
+                    <a-text value="=" position="0 0 0.5" color="black" align="center" geometry="primitive:plane" material="opacity: 0.0; transparent: true"></a-text>
+                </a-box>
+                
+                <a-box id="boxOutput" position="6 2.8 -12">
+                    <a-text id="display"  position="0 0 0.5" color="black" align="center" geometry="primitive:plane" material="opacity: 0.0; transparent: true"></a-text>
+                </a-box>
+
+                <a-gui-flex-container 
+                    flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0.7" 
+                    width="4" height="6.0" 
+                    panel-color="white" 
+                    panel-rounded="0.2"
+                    position="-1 2.6 -11.8" rotation="0 0 0" scale="1 0.75 1"
+                >
+
+                <a-gui-label
+                width="3.4" height="0.6"
+                value="Calculadora Magica"
+                font-family="assets/fonts/DiplomataSC-Regular.ttf"
+                font-size="0.35"
+                line-height="0.8"
+                letter-spacing="0"
+                margin="0 0 0.05 0"
+                background-color="white"
+                ></a-gui-label>                
+                
+                <a-gui-label
+                width="3.4" height="1"
+                value="1-Selecione o bloco que deseje"
+                font-family="assets/fonts/DiplomataSC-Regular.ttf"
+                font-size="0.35"
+                line-height="0.8"
+                letter-spacing="0"
+                margin="0 0 0.05 0"
+                background-color="white"
+                ></a-gui-label>
+                
+                <a-gui-label
+                width="3.4" height="1"
+                value="2-Insira os valores"
+                font-family="assets/fonts/DiplomataSC-Regular.ttf"
+                font-size="0.35"
+                line-height="0.8"
+                letter-spacing="0"
+                margin="0 0 0.05 0"
+                background-color="white"
+                ></a-gui-label> 
+
+                <a-gui-label
+                width="3.4" height="1"
+                value="3-Escolha a operação"
+                font-family="assets/fonts/DiplomataSC-Regular.ttf"
+                font-size="0.35"
+                line-height="0.8"
+                letter-spacing="0"
+                margin="0 0 0.05 0"
+                background-color="white"
+                ></a-gui-label> 
+
+                <a-gui-label
+                width="3.4" height="1"
+                value="4-Pressione igual e descubra o resultado"
+                font-family="assets/fonts/DiplomataSC-Regular.ttf"
+                font-size="0.35"
+                line-height="0.8"
+                letter-spacing="0"
+                margin="0 0 0.05 0"
+                background-color="white"
+                ></a-gui-label> 
+
+                </a-gui-flex-container>
+                    
+                <a-sky color="#ECECEC"></a-sky>
+            </a-entity>
+        </a-scene>
+
+        <script src="script.js"></script>
+    </body>
+</html>

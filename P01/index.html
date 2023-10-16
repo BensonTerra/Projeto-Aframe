@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Projeto P02</title>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.js"></script>
+        <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+        <link rel="stylesheet" href="StyleSheet.css">
+    </head>
+    <body>
+        <a-scene inspector-plugin-recast>
+            <a-assets>
+                <a-asset-item id="cenario" src="teste/cenario/cenario.gltf"></a-asset-item>
+                <a-asset-item id="calcMolde" src="teste/objetos/molde.gltf"></a-asset-item>
+
+                <a-asset-item id="tecla1" src="teste/objetos/numero1.gltf"></a-asset-item>
+                <a-asset-item id="tecla2" src="teste/objetos/numero2.gltf"></a-asset-item>
+                <a-asset-item id="tecla3" src="teste/objetos/numero3.gltf"></a-asset-item>
+                <a-asset-item id="tecla4" src="teste/objetos/numero4.gltf"></a-asset-item>
+                <a-asset-item id="tecla5" src="teste/objetos/numero5.gltf"></a-asset-item>
+                <a-asset-item id="tecla6" src="teste/objetos/numero6.gltf"></a-asset-item>
+                <a-asset-item id="tecla7" src="teste/objetos/numero7.gltf"></a-asset-item>
+                <a-asset-item id="tecla8" src="teste/objetos/numero8.gltf"></a-asset-item>
+                <a-asset-item id="tecla9" src="teste/objetos/numero9.gltf"></a-asset-item>
+                <a-asset-item id="tecla0" src="teste/objetos/numero0.gltf"></a-asset-item>
+                <a-asset-item id="mais" src="teste/objetos/teclaMais.gltf"></a-asset-item>
+                <a-asset-item id="menos" src="teste/objetos/teclaMenos.gltf"></a-asset-item>
+                <a-asset-item id="multi" src="teste/objetos/teclaMultiplicação.gltf"></a-asset-item>
+                <a-asset-item id="divis" src="teste/objetos/teclaDivisao.gltf"></a-asset-item>
+                <a-asset-item id="clear" src="teste/objetos/teclaC.gltf"></a-asset-item>
+                <a-asset-item id="ponto" src="teste/objetos/teclaPonto.gltf"></a-asset-item>
+                <a-asset-item id="igual" src="teste/objetos/teclaIgual.gltf"></a-asset-item>
+            </a-assets>
+
+            <a-entity gltf-model="#cenario" position = "0 0 0"></a-entity>
+            <a-entity gltf-model="#calcMolde" visible="false"></a-entity>
+            <a-entity id="um" gltf-model="#tecla1"></a-entity>
+            <a-entity id="dois" gltf-model="#tecla2"></a-entity>
+            <a-entity id="tres" gltf-model="#tecla3"></a-entity>
+            <a-entity id="quatro" gltf-model="#tecla4"></a-entity>
+            <a-entity id="cinco" gltf-model="#tecla5"></a-entity>
+            <a-entity id="seis" gltf-model="#tecla6"></a-entity>
+            <a-entity id="sete" gltf-model="#tecla7"></a-entity>
+            <a-entity id="oito" gltf-model="#tecla8"></a-entity>
+            <a-entity id="nove" gltf-model="#tecla9"></a-entity>
+            <a-entity id="zero" gltf-model="#tecla0"></a-entity>
+            <a-entity id="botaoMais" gltf-model="#mais"></a-entity>
+            <a-entity id="botaoMenos" gltf-model="#menos"></a-entity>
+            <a-entity id="pontoMulti" gltf-model="#multi"></a-entity>
+            <a-entity id="pontoDivi" gltf-model="#divis"></a-entity>
+            <a-entity id="clearButton" gltf-model="#clear"></a-entity>
+            <a-entity id="pontoButton" gltf-model="#ponto"></a-entity>
+            <a-entity gltf-model="#igual"></a-entity>
+            
+
+            <a-gltf-model src="teste/mesh/mesh.gltf" checkpoint nav-mesh visible="true"></a-gltf-model>
+
+            <a-box position="2 2.8 -12">
+                <a-text id="input1" value="0" position="0 0 0.5" color="red" align="center" geometry="primitive:plane" material="color:#fffff"></a-text>
+            </a-box>
+
+            <a-box position="4 2.8 -12">
+                <a-text id="display" value="0" position="0 0 0.5" color="red" align="center" geometry="primitive:plane" material="color:#fffff"></a-text>
+            </a-box>
+
+            <a-box position="6 2.8 -12">
+                <a-text id="input2" value="0" position="0 0 0.5" color="red" align="center" geometry="primitive:plane" material="color:#fffff"></a-text>
+            </a-box>
+            
+
+            <a-sky color="#ECECEC"></a-sky>
+
+            <a-entity id="rig" position="6.9 0 -6.7" movement-controls="constrainToNavMesh: true">
+                <a-entity camera position="0 2.5 0" look-controls="pointerLockEnabled: false">
+                    <a-cursor>
+                        
+                    </a-cursor>
+                </a-entity>
+              </a-entity>
+
+            <!--
+            <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+            <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+            <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+            <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+            -->
+        </a-scene>
+
+        <script src="script.js"></script>
+    </body>
+</html>
